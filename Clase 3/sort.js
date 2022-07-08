@@ -40,10 +40,18 @@ const listaObjetos = [
     {codigo:1,importe:800},
 ]
 
+//Mi solución con prog.funcional
 const ordenarPorImp = function(unaLista) {
     let listaOrdenadaPorImporte = [...unaLista]
     return listaOrdenadaPorImporte.sort((a, b) => a.importe - b.importe)
 }
+
+/*Lo q hizo el profesor: 
+function ordenarListaObjetos(listaObjetos) {
+    const aux = [...listaObjetos];
+    return aux.sort((o1,o2) => o1.importe-o2.importe);
+}
+*/
 
 console.log( listaObjetos);
 console.log(ordenarPorImp(listaObjetos) );
