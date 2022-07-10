@@ -71,7 +71,7 @@ const proceso = {
     // devolver una nueva lista
     //
     actualizarStock() {
-        const aux = [...this.stockAcutal];
+        const aux = [...this.stockAcutal];    //copiamos el stock actual al auxiliar
 
         aux.filter((nuevo) => 
             this.stockNuevo.map( (e) => {
