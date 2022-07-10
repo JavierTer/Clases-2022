@@ -12,8 +12,15 @@
     <div id="app">
         <p v-bind:style.color="color"> Algun texto</p>
         {{mensaje}} 
-       <p> {{numero + 1}}</p>
+       <p> {{numero + 1}}</p> 
+       <button @click="incrementar"> incrementar</button>
        <p>{{ok ? 'SI': 'NO'}}</p>
+
+       <h1 v-if="ver">Texto de prueba de v-if!</h1>
+       <h2 v-show="ver"> Texto de prueba de v-show</h2>
+       <button @click="mostrar"> mostrar</button>
+
+
     
     </div>
 
