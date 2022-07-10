@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="miapp">
+
+        <li v-for="(gestion, index) in gestiones" :key="gestion.id">
+            {{index}} {{gestion.id}} {{gestion.desc}} Prioridad {{gestion.prioridad}}
+        </li>
+
+        <button @click="ordenar"> ordenar</button>
+
+        <p>
+           Id <input v-model="gestion.id">
+           Descripcion <input v-model="gestion.desc">
+           Prioridad <input v-model="gestion.prioridad">
+        </p>
+        <button @click="agregar"> agregar</button>
+
+
+
+    </div>
+
+
+
+    <script src="listas.js"></script>
+</body>
+</html>
