@@ -76,21 +76,21 @@ const proceso = {
         return productosStockMinimo
     },
                         //Si dejamos una funcion que no tiene nada devolveria undefined
-    actualizarStock: function(){
-        for (let index = 0; index < this.stockNuevo.length; index++) {
-            let codigoBuscadoStockNvo = this.stockNuevo[index].codigoProducto;
-            
-            for (let x = 0; x < this.stockActual.length; x++) {
-                
-                let codBuscado = this.stockActual[x].codigoProducto
-
-                if (codigoBuscadoStockNvo == codBuscado){
-                    this.stockActual[x].cantidad = this.stockActual[x].cantidad + this.stockNuevo[index].paraAgregar
-                }
-                
-            }
-        }
-    }
+                        actualizarStock: function(){
+                            for (let index = 0; index < this.stockNuevo.length; index++) {
+                                let codigoBuscadoStockNvo = this.stockNuevo[index].codigoProducto;
+                                
+                                for (let x = 0; x < this.stockActual.length; x++) {
+                                    
+                                    let codBuscado = this.stockActual[x].codigoProducto
+                    
+                                    if (codigoBuscadoStockNvo == codBuscado){
+                                        this.stockActual[x].cantidad = this.stockActual[x].cantidad + this.stockNuevo[index].paraAgregar
+                                    }
+                                    
+                                }
+                            }
+                        }
 }
 
 console.log(proceso.stockActual);
@@ -98,7 +98,7 @@ console.log(proceso.stockActual);
 console.log(proceso.calcularMinimos());
 
 proceso.actualizarStock();
-
+ 
 console.log("Mostramos actualizado");
 console.log(proceso.stockActual);
 
