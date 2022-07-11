@@ -6,6 +6,8 @@ import Usuario from '../components/Usuario.vue'
 import Reserva from '../components/Reserva.vue'
 import GestionVenta from '../components/GestionVenta.vue'
 import NotFound from '../components/NotFound.vue'           //si no encuentra la pagina se dirige aca
+import InformeReservas from '../components/InformeReservas.vue'
+
 
 
 
@@ -19,7 +21,9 @@ const routes = [
     { path: '/Pelicula', component: Pelicula },
     { path: '/Reserva', component: Reserva },
     { path: '/GestionVenta', component: GestionVenta },
-    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+    { path: '/InformeReservas', component: InformeReservas },
+
 
 
 ]

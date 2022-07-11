@@ -11,6 +11,8 @@ import Home from "./components/Home.vue";
       <router-link to="/Reserva">Reserva</router-link> |
       <router-link to="/Usuario">Usuario</router-link> |
       <router-link to="/GestionVenta">Gestion de venta</router-link> |
+      <router-link to="/InformeReservas">Informe de Reservas</router-link> |
+
     </p>
     <router-view></router-view>
     <!-- Pie -->

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Reservas</h2>
+    <h2>Reserva</h2>
     <div>
         Codigo de reserva <input type="text" />
     </div>
