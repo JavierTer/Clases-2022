@@ -5,6 +5,7 @@ import Pelicula from '../components/Pelicula.vue'
 import Usuario from '../components/Usuario.vue'
 import Reserva from '../components/Reserva.vue'
 import GestionVenta from '../components/GestionVenta.vue'
+import NotFound from '../components/NotFound.vue'
 
 
 
@@ -16,7 +17,9 @@ const routes = [
     { path: '/Usuario', component: Usuario },
     { path: '/Pelicula', component: Pelicula },
     { path: '/Reserva', component: Reserva },
-    { path: '/GestionVenta', component: GestionVenta }
+    { path: '/GestionVenta', component: GestionVenta },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
+
 
 ]
 

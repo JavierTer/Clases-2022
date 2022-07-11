@@ -1,26 +1,24 @@
 <script setup>
-import Home from './components/Home.vue'
+import Home from "./components/Home.vue";
 </script>
 
 <template>
   <div>
-      <!-- Cabecera -->
-      <p>
-      <router-link to="/">Ir a Home</router-link> | 
-      <router-link to="/Pelicula">Pelicula</router-link> | 
-      <router-link to="/Reserva">Reserva</router-link> | 
-      <router-link to="/Usuario">Usuario</router-link> | 
-      <router-link to="/GestionVenta">Gestion de venta</router-link> | 
-
+    <!-- Cabecera -->
+    <p>
+      <router-link to="/">Ir a Home</router-link> |
+      <router-link to="/Pelicula">Pelicula</router-link> |
+      <router-link to="/Reserva">Reserva</router-link> |
+      <router-link to="/Usuario">Usuario</router-link> |
+      <router-link to="/GestionVenta">Gestion de venta</router-link> |
     </p>
     <router-view></router-view>
-      <!-- Pie -->
+    <!-- Pie -->
   </div>
- 
 </template>
 
 <style>
-@import './assets/base.css';
+@import "./assets/base.css";
 
 #app {
   max-width: 1280px;
