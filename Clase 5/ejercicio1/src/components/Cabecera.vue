@@ -9,5 +9,8 @@ export default {
 </script>
 
 <style>
-
+h2 {
+  color : blue;
+  font-size: 3em;
+}
 </style>
