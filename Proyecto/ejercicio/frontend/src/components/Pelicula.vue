@@ -1,9 +1,21 @@
 <template>
   <div>
     <h2>Alta de pelicula</h2>
+    <li v-for="pelicula in lista" :key="pelicula.codigo">
+      {{ pelicula.codigo }} {{ pelicula.nombre }} {{ pelicula.descripcion }}
+      <button @click="eliminar(pelicula.codigo)">ANULAR</button>
+    </li>
+
+    <p>
+      Código <input type="text" v-model="pelicula.codigo" /> Nombre
+      <input type="text" v-model="pelicula.nombre" /> Descripcion
+      <input type="text" v-model="pelicula.descripcion" />
+      <button @click="agregar">Agregar Pelicula</button>
+    </p>
+
     {{ mensajeError }}
 
-    {{ lista }}
+    <!--    {{ lista }} -->
 
     <!--
     <div>Código de pelicula<input type="text" /></div>
@@ -27,7 +39,8 @@ export default {
   data() {
     return {
       lista: [],
-      mensajeError: ''
+      mensajeError: "",
+      pelicula: { codigo: 0, nombre: "", descripcion: "" },
       //ver: false,
     };
   },
@@ -42,17 +55,35 @@ export default {
     } catch (error) {
       console.log(error);
       //mostrar();
-      this.mensajeError = "No se pudo obtener los datos"
+      this.mensajeError = "No se pudo obtener los datos";
     }
   },
   methods: {
-    mostrar() {
-      if (this.ver == true) {
-        this.ver = false;
-      } else {
-        this.ver = true;
+    agregar() {
+      try {
+        const peliculaAgregar = { ...this.pelicula };
+        peliculaService.setPelicula(peliculaAgregar);
+        this.lista.push(peliculaAgregar);
+      } catch (error) {
+        this.mensajeError = "No se pudo obtener los datos ";
+        //console.log(error.error);
       }
     },
+    eliminar(unCodigo) {
+      try {
+        peliculaService.deletePelicula(unCodigo);
+        const listaCodigos = this.lista.map((e) => {
+          return e.codigo;
+        });
+        const indice = listaCodigos.indexOf(unCodigo);
+        this.lista.splice(indice, 1);
+      } catch (error) {
+        this.mensajeError = "No se pudo obtener los datos ";
+        console.log(error.error);
+
+      }
+    },
+    
   },
   /*
   setup() {

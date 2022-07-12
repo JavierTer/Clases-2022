@@ -15,5 +15,11 @@ const apiClient = axios.create({
 export default {
     getPeliculas() {
         return apiClient.get('/api/lista')
-    }
+    },
+    setPelicula(pelicula){
+        return apiClient.post('api/setpelicula', pelicula)
+    },
+    deletePelicula(codigo) {
+        return apiClient.delete('/api/pelicula/' + codigo);
+    },
 }
