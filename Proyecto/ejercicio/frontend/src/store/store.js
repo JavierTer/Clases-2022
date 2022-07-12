@@ -11,7 +11,7 @@ export const useStore = defineStore('main', {
         return {
           // Todas las propiedades se pueden inferir
           contador: 10,
-          listaPeliculas : [],
+          listaReservas: [],
         }
       },
       //Para obtener la info del estado se usan los getters
@@ -23,8 +23,8 @@ export const useStore = defineStore('main', {
         aumentar() {
           this.contador++;
         },
-        agregarPelicula(pelicula) {
-          this.listaPeliculas.push(pelicula)
+        agregarReserva(reserva) {
+          this.listaReservas.push(reserva)
         }
       }
 })

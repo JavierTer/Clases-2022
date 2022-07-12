@@ -1,6 +1,11 @@
 <template>
   <div>
-    <h2>Pelicula</h2>
+    <h2>Alta de pelicula</h2>
+    {{ mensajeError }}
+
+    {{ lista }}
+
+    <!--
     <div>Código de pelicula<input type="text" /></div>
     <div>
       {{listaPeliculas}}
@@ -10,15 +15,46 @@
      Nombre de la Pelicula <input type="text" v-model="pelicula.nombre"/> 
      Descripcion           <input  type="text" v-model="pelicula.descripcion"/> 
       <button @click="agregarPelicula">Agregar Pelicula</button>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import { useStore } from "../store/store.js"; //Para usar el store hay que importarlo:
-import { storeToRefs } from "pinia"; //esta linea es como un mapeador
-
+//import { useStore } from "../store/store.js"; //Para usar el store hay que importarlo:
+//import { storeToRefs } from "pinia"; //esta linea es como un mapeador
+import peliculaService from "../services/peliculaService.js";
 export default {
+  data() {
+    return {
+      lista: [],
+      mensajeError: ''
+      //ver: false,
+    };
+  },
+  //cuando se carga el componente llama al servicio de peliculaService
+  created: async function () {
+    //esto es para que al cargar el componente haga una funcion asincronica con los datos
+    try {
+      const rta = await peliculaService.getPeliculas();
+      //console.log(data);
+      //agregamos lo que devuelve el back a la lista
+      this.lista = rta.data;
+    } catch (error) {
+      console.log(error);
+      //mostrar();
+      this.mensajeError = "No se pudo obtener los datos"
+    }
+  },
+  methods: {
+    mostrar() {
+      if (this.ver == true) {
+        this.ver = false;
+      } else {
+        this.ver = true;
+      }
+    },
+  },
+  /*
   setup() {
     const store = useStore();
     const { listaPeliculas } = storeToRefs(store);
@@ -51,7 +87,7 @@ export default {
       //this.agregarPelicula([...this.pelicula, pelicula])
       
     },
-  },
+  },*/
 };
 </script>
 
